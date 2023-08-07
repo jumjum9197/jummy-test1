@@ -1,0 +1,85 @@
+.section {
+  background-image: linear-gradient(
+    180deg,
+    rgb(210, 210, 241),
+    rgb(103, 103, 234)
+  );
+  height: inherit;
+  display: flex;
+  justify-content: center;
+}
+.formWrapper {
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1;
+  min-height: 40.9rem;
+  max-width: 40rem;
+  padding-block: 5rem;
+  padding-inline: clamp(2rem, 3vw, 5.6rem);
+  // margin-block-end: 5rem;
+  // box-shadow: 10px 10px 5px white;
+  background-color: white;
+  border-radius: 30px;
+
+  @media screen and (max-width: 480px) {
+    padding-block: 10rem;
+    margin-inline: 2rem;
+  }
+}
+
+.circle {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-color: blue;
+  position: absolute;
+  top: 10rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+  // position: absolute;
+  // background-color: grey;
+  // width: 15.9rem;
+  // height: 15.9rem;
+  // border-radius: 50%;
+  // top: 64.1%;
+  // left: 41%;
+  // transform: translate(-50%, -50%);
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+.forgotPassword {
+  display: flex;
+  justify-content: end;
+  color: #1b1c1e;
+  padding-bottom: 2rem;
+  font-size: 1.6rem;
+}
+.forgotPassword:hover {
+  color: blue;
+}
+.userIcon path {
+  fill: white !important;
+}
+.para2 {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: 1rem;
+
+  color: #011c34;
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+    justify-content: space-between;
+  }
+}
+.signUpLink {
+  font-weight: 700;
+  color: blue;
+}

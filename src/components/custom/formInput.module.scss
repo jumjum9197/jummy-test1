@@ -1,0 +1,41 @@
+.errorMessage{
+    color: red;
+	font-size: 1.4rem;
+    display: flex;
+}
+.span{
+    position: relative;
+	top: 5px;
+}
+.inputWrapper{
+    position: relative;
+    background-color: inherit;
+    width: 100%;
+    display: flex;
+    gap: 0.813rem;
+    align-items: center;
+    border-radius: 5px;
+    padding-block: 0.813rem;
+
+    & span {
+        position: absolute;
+        z-index: 200;
+        top: 2.5rem;
+        right: 2.5rem;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-decoration-line: underline;
+        color: blue;
+        cursor: pointer;
+    }
+}
+.inputField{
+    width: inherit;
+    border-radius: 8px;
+    color: blue;
+
+}
+// .inputField::after{
+//    background-color: white!important;
+// }

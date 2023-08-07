@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,300&display=swap");
+
+
+
+
+#root{
+  height: 100%;
+}
+
+body,html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-main-bg);
+  font-size: 62.5%;
+
+  --color-main-bg :  #FFFFFF;
+  --color-main-primary: #11643C;
+
+
+  --color-black-text: #011C34;
+  --color-blacker-text: #011602;
+  --color-green-text: #045052;
+
+  --color-lightgreen-bg : #8DC467;
+  --color-lightestgreen-bg:  #D9EBCC;
+  --color-lightergreen-bg : rgba(217, 235, 204, 0.6);
+  ;
+
+  --font-s-2 : 0.2rem;
+  --font-s-4 : 0.4rem;
+  --font-s-14 : 1.4rem;
+  --font-s-16: 1.6rem;
+}
+
+
+html {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-quatery);
+}
+a {
+	text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.css-1iji0d4{
+  background-color: inherit !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+}
