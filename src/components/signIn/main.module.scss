@@ -4,9 +4,11 @@
     rgb(210, 210, 241),
     rgb(103, 103, 234)
   );
-  height: inherit;
+  // height: inherit;
   display: flex;
   justify-content: center;
+  align-items: center;
+//  width: 50%;
 }
 .formWrapper {
   margin: auto;
@@ -15,7 +17,7 @@
   justify-content: center;
   flex: 1 1;
   min-height: 40.9rem;
-  max-width: 40rem;
+  // max-width: 70rem;
   padding-block: 5rem;
   padding-inline: clamp(2rem, 3vw, 5.6rem);
   // margin-block-end: 5rem;
@@ -82,4 +84,57 @@
 .signUpLink {
   font-weight: 700;
   color: blue;
+}
+
+
+
+
+.center{
+  display:flex; 
+  justify-content: center;
+}
+
+.container{
+  display:flex; 
+  align-items: center;
+  justify-content: center;
+  margin-block: 7rem;
+  @media (max-width: 480px){
+    margin: 3rem;
+    display:block; 
+  }
+}
+.container section {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  // align-items: center;
+  margin-inline: 5rem;
+  // height: 50vh;
+}
+
+.text{
+  font-size: 20rem;
+  color: rgb(147, 147, 223);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  @media (max-width: 480px){
+    display: none;
+}
+}
+.right{
+  // justify-content: center;
+  // align-self: center;
+}
+.half{
+  flex: 1;
+  // justify-content: center;
+
+  @media (max-width: 480px){
+      display: block;
+  }
+}
+.button{
+  margin-bottom: 2rem;
 }

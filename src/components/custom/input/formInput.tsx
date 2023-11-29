@@ -1,153 +1,96 @@
-import { styled, TextField } from "@mui/material";
-import { padding } from "@mui/system";
+import * as React from 'react';
+import { alpha, styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import TextField, { TextFieldProps } from '@mui/material/TextField';
+import { OutlinedInputProps } from '@mui/material/OutlinedInput';
 import { FieldHookConfig, useField } from "formik";
 import { InputHTMLAttributes, ReactElement } from "react";
-import styles from "../formInput.module.scss";
-
+import styles from "../formInput.module.scss"
 interface InputProps{
-    icon? : React.ReactNode;
-    placeholder? : string;
-    label? : string;
-    labelColor? : string;
-    type? : string;
-    marginRight? : string;
-    defaultValue? : any;
-    width? : string;
-    className: string;
-    changePassword?: boolean;
-    select?: boolean;
-    options?: React.ReactNode;
-    handleChangePassword?: () => void;
-    text?:React.ReactNode;
-    asterisk?:boolean;
+  icon? : React.ReactNode;
+  placeholder? : string;
+  label? : string;
+  labelColor? : string;
+  type? : string;
+  marginRight? : string;
+  defaultValue? : any;
+  width? : string;
+  className: string;
+  changePassword?: boolean;
+  select?: boolean;
+  options?: React.ReactNode;
+  handleChangePassword?: () => void;
+  text?:React.ReactNode;
+  asterisk?:boolean;
 }
 
+
 const CustomFormInput: React.FC<InputProps & InputHTMLAttributes<HTMLInputElement> & FieldHookConfig<string> & any> = (props) : ReactElement => {
-    const {changePassword = false, options, select = false, handleChangePassword, icon, placeholder, label, asterisk = true, labelColor, type, className, width,text, ...rest} = props;
-    const [field, meta] = useField(props)
-    return (
-        <section>
+  const {changePassword = false, options, select = false, handleChangePassword, icon, placeholder, label, asterisk = true, labelColor, type, className, width,text, ...rest} = props;
+  const [field, meta] = useField(props)
 
-       <div className={styles.inputWrapper}>
-            {icon && <span>{icon}</span>}
-            {changePassword && <span onClick={() =>{handleChangePassword()}} className={'span'}>{text}</span>}
-            {/* <TextFields 
-              icon={icon} 
-              label={label} 
-              color={labelColor} 
-              type={type} 
-              width={width} 
-              className={styles.inputField} 
-              variant="standard" 
-              sx={{ input: { color: "#11643C" , fontSize:"1.6rem", borderBottomColor: "#11643C" }, "label": { fontSize: "1.6rem"} }} 
-              
-              {...field} 
-              {...rest}
-            /> */}
-  {/* <Label htmlFor={props.id || props.name}>{props.star === false ? props.label : <span>{props.label}<sup className="star">*</sup></span>}</Label> */}
+  return (
+    <Box
+      component="form"
+      noValidate
+      // sx={{
+      //   display: 'grid',
+      //   // gridTemplateColumns: { sm: '1fr 1fr' },
+      //   gap: 2,
+      // }}
+      sx={{ input: {color: "#11643C" , fontSize:"1.6rem", borderBottomColor: "#11643C" }, "label": { color: '#011C34', fontSize: "1.9rem"} }} 
 
-  {/* props.asterisk === false ? props.label : <span>{props.label}<sup className="star">*</sup></span> */}
-            <TextFields 
-                icon={icon} 
-                text={text}
-                label={asterisk  ?  <>{label}<sup className="star">*</sup></>   : label} 
-                select = {select}
-                color={labelColor} 
-                type={type} 
-                width={width} 
-                className={styles.inputField} 
-                id="custom-css-outlined-input" 
-                variant="outlined" 
-                sx={{ input: { color: "#11643C" , fontSize:"1.6rem", borderBottomColor: "#11643C" }, "label": { color: '#011C34', fontSize: "1.9rem"} }} 
-              {...field} 
-              {...rest}
-            > 
-            {options}
-            </TextFields>
-       </div>
-       
-        {meta.touched && meta.error ? (
+    >
+    
+      <RedditTextField
+        label={label}
+        defaultValue=""
+        // id="reddit-input"
+        variant="filled"
+        select = {select}
+        type={type}
+        className={styles.inputField}   
+        style={{ marginTop: 10, marginBottom:10,  }}
+        // sx={{ input: {marginTop: 1, marginBottom:1,color: "#11643C" , fontSize:"1.6rem", borderBottomColor: "#11643C" }, "label": { color: '#011C34', fontSize: "1.9rem", marginTop: 15, marginBottom:15} }} 
+
+      />
+           {meta.touched && meta.error ? (
                 <menu className={styles.errorMessage}> 
                     <span className={styles.span}>&#42;</span>
                     {meta.error}
                 </menu>
             ) : null
         }
-        </section>
-  )
+   
+    </Box>
+  );
 }
-
 export default CustomFormInput
 
-// const TextFields = styled(TextField)({
-//     color: "green",
-//     '& label.Mui-focused': {
-//       color: 'inherit',
-//     },
-//     '& .MuiInput-underline:after': {
-//       borderBottomColor: 'green',
-//     },
-//     '& .MuiOutlinedInput-root': {
-//       '& fieldset': {
-//         borderColor: 'red',
-//         borderRadius: "10px"
-//       },
-//       '&.Mui-focused fieldset': {
-//         borderColor: 'green',
-//       },
-//       '&:hover': {
-//         color: 'inherit',
-//       },
-//       '& .MuiInputBase-input': {
-//         borderRadius: 4,
-//         position: 'relative',
-//         border: '1px solid #ced4da',
-//         fontSize: 90,
-//         width: 'auto',
-//         padding: '10px 12px',
-//       },
-//     },
-//   });
-
-
-  
-const TextFields = styled(TextField)({
-  '& label.Mui-focused': {
-    color: 'blue',
-    padding: '10px 0',
-  },
-  '& .MuiInput-underline:after': {
-    borderBottomColor: '#8DC467',
-  },
-  '& .MuiInputLabel-root.Mui-disabled': {
-    color: ' blue',
-    zIndex: 0,
-  },
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: '#8DC467',
-      borderTop: "none",
-      borderRight : "none",
-      borderLeft :"none",
-      paddingLeft: "10px",
-      borderRadius: "10px"
-      
+const RedditTextField = styled((props: TextFieldProps) => (
+  <TextField
+    InputProps={{ disableUnderline: true } as Partial<OutlinedInputProps>}
+    {...props}
+  />
+))(({ theme }) => ({
+  '& .MuiFilledInput-root': {
+    overflow: 'hidden',
+    borderRadius: 4,
+    backgroundColor: theme.palette.mode === 'light' ? '#F3F6F9' : '#1A2027',
+    border: '1px solid',
+    borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
+    transition: theme.transitions.create([
+      'border-color',
+      'background-color',
+      'box-shadow',
+    ]),
+    '&:hover': {
+      backgroundColor: 'transparent',
     },
-    '&:hover fieldset': {
-      borderColor: '#8DC467',
-      padding: 0
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: '#8DC467',
-      
-    },
-    '& .MuiInputBase-input': {
-      padding: '10px 12px',
-      paddingTop: '15px',
-      paddingBottom: "8px"
-    },
-    '& .MuiInputBase-input selected': {
-     backgroundColor: "white"
+    '&.Mui-focused': {
+      backgroundColor: 'transparent',
+      boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
+      borderColor: theme.palette.primary.main,
     },
   },
-});
+}));
